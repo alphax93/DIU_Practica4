@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 
 public class PanelImagen extends JPanel{
     private String ruta;
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
