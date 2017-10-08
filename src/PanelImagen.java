@@ -9,17 +9,23 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class PanelImagen extends JPanel{
-    private String ruta;
 
+    private String ruta = ".\\src\\Imagenes\\diu4-1.jpg";
+    private BufferedImage I;
+
+    public BufferedImage getI() {
+        return I;
+    }
+    
     public void setRuta(String ruta) {
         this.ruta = ruta;
     }
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        BufferedImage I=null;
+         I=null;
         try{
-            I=ImageIO.read(new File(".\\src\\Imagenes\\diu4-1.jpg"));
+            I=ImageIO.read(new File(ruta));
         }catch(IOException e){
             System.out.println("HolaaaaaAA");
         }
