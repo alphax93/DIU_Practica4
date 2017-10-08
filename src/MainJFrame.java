@@ -5,6 +5,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     public MainJFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
         panelImagen1.paintComponent(panelImagen1.getGraphics());
         buttonGroup1.add(jRadioButton1);
         buttonGroup1.add(jRadioButton2);
