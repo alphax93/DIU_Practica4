@@ -13,6 +13,10 @@ public class PanelImagen extends JPanel{
     private String ruta = ".\\src\\Imagenes\\diu4-1.jpg";
     private BufferedImage I;
 
+    public void setI(BufferedImage I) {
+        this.I = I;
+    }
+
     public BufferedImage getI() {
         return I;
     }
@@ -39,7 +43,8 @@ public class PanelImagen extends JPanel{
         Kernel sharpkernel = new Kernel(3, 3, difuminar);
         ConvolveOp sop = new ConvolveOp(sharpkernel, ConvolveOp.EDGE_NO_OP,null);
         i = sop.filter(i, null);
-        g.drawImage(I, 0, 0, null);
+        I=i;
+        g.drawImage(i, 0, 0, null);
     }
     
     public void Realce(BufferedImage i,Graphics g){
@@ -50,6 +55,7 @@ public class PanelImagen extends JPanel{
         Kernel sharpkernel = new Kernel(3, 3, resaltar);
         ConvolveOp sop = new ConvolveOp(sharpkernel, ConvolveOp.EDGE_NO_OP,null);
         i = sop.filter(i, null);
-        g.drawImage(I, 0, 0, null);
+        I=i;
+        g.drawImage(i, 0, 0, null);
     }
 }
