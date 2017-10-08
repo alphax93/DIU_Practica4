@@ -13,10 +13,6 @@ public class PanelImagen extends JPanel{
     private String ruta = ".\\src\\Imagenes\\diu4-1.jpg";
     private BufferedImage I;
 
-    public void setI(BufferedImage I) {
-        this.I = I;
-    }
-
     public BufferedImage getI() {
         return I;
     }
