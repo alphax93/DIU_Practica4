@@ -42,9 +42,8 @@ public class PanelImagen extends JPanel{
                 0.111f, 0.111f, 0.111f};
         Kernel sharpkernel = new Kernel(3, 3, difuminar);
         ConvolveOp sop = new ConvolveOp(sharpkernel, ConvolveOp.EDGE_NO_OP,null);
-        i = sop.filter(i, null);
-        I=i;
-        g.drawImage(i, 0, 0, null);
+        I = sop.filter(i, null);
+        g.drawImage(I, 0, 0, null);
     }
     
     public void Realce(BufferedImage i,Graphics g){
@@ -54,8 +53,7 @@ public class PanelImagen extends JPanel{
                     0.f, -1.f, 0.f};
         Kernel sharpkernel = new Kernel(3, 3, resaltar);
         ConvolveOp sop = new ConvolveOp(sharpkernel, ConvolveOp.EDGE_NO_OP,null);
-        i = sop.filter(i, null);
-        I=i;
-        g.drawImage(i, 0, 0, null);
+        I = sop.filter(i, null);
+        g.drawImage(I, 0, 0, null);
     }
 }
