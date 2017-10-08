@@ -27,11 +27,11 @@ public class PanelImagen extends JPanel{
         try{
             I=ImageIO.read(new File(ruta));
         }catch(IOException e){
-            System.out.println("HolaaaaaAA");
+            System.out.println("Fallo 404 consulte a los programadores buenorros");
         }
         g.drawImage(I, 0, 0, null);
     }
-    public void suavizar(BufferedImage i){
+    public void suavizar(BufferedImage i, Graphics g){
         float[] difuminar ={
                 0.111f, 0.111f, 0.111f,
                 0.111f, 0.111f, 0.111f,
@@ -39,9 +39,10 @@ public class PanelImagen extends JPanel{
         Kernel sharpkernel = new Kernel(3, 3, difuminar);
         ConvolveOp sop = new ConvolveOp(sharpkernel, ConvolveOp.EDGE_NO_OP,null);
         i = sop.filter(i, null);
+        g.drawImage(I, 0, 0, null);
     }
     
-    public void Realce(BufferedImage i){
+    public void Realce(BufferedImage i,Graphics g){
         float[] resaltar ={
                     0.f, -1.f, 0.f,
                     -1.f, 5.0f, -1.f,
@@ -49,6 +50,6 @@ public class PanelImagen extends JPanel{
         Kernel sharpkernel = new Kernel(3, 3, resaltar);
         ConvolveOp sop = new ConvolveOp(sharpkernel, ConvolveOp.EDGE_NO_OP,null);
         i = sop.filter(i, null);
-        
+        g.drawImage(I, 0, 0, null);
     }
 }

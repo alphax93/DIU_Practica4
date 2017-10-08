@@ -176,8 +176,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        panelImagen1.suavizar(panelImagen1.getI());
-        panelImagen1.paintComponent(panelImagen1.getGraphics());
+        panelImagen1.suavizar(panelImagen1.getI(), panelImagen1.getGraphics());
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -196,8 +195,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        panelImagen1.Realce(panelImagen1.getI());
-        panelImagen1.paintComponent(panelImagen1.getGraphics());
+        panelImagen1.Realce(panelImagen1.getI(), panelImagen1.getGraphics());
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     /**
