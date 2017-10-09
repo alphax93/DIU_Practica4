@@ -194,16 +194,19 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        repaint();
         panelImagen1.setRuta(".\\src\\Imagenes\\diu4-1.jpg");
         panelImagen1.paintComponent(panelImagen1.getGraphics());
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        repaint();
         panelImagen1.setRuta(".\\src\\Imagenes\\diu4-2.jpg");
         panelImagen1.paintComponent(panelImagen1.getGraphics());
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        repaint();
         panelImagen1.setRuta(".\\src\\Imagenes\\diu4-3.jpg");
         panelImagen1.paintComponent(panelImagen1.getGraphics());
     }//GEN-LAST:event_jRadioButton3ActionPerformed
