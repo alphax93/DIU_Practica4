@@ -9,36 +9,47 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class PanelImagen extends JPanel{
-    private String ruta;
+
+    private String ruta = ".\\src\\Imagenes\\diu4-1.jpg";
+    private BufferedImage I;
+
+    public BufferedImage getI() {
+        return I;
+    }
+    
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        BufferedImage I=null;
+         I=null;
         try{
-            I=ImageIO.read(new File(".\\src\\Imagenes\\diu4-1.jpg"));
+            I=ImageIO.read(new File(ruta));
         }catch(IOException e){
-            System.out.println("HolaaaaaAA");
+            System.out.println("Fallo 404 consulte a los programadores buenorros");
         }
         g.drawImage(I, 0, 0, null);
     }
-    public void suavizar(BufferedImage i){
+    public void suavizar(BufferedImage i, Graphics g){
         float[] difuminar ={
                 0.111f, 0.111f, 0.111f,
                 0.111f, 0.111f, 0.111f,
                 0.111f, 0.111f, 0.111f};
         Kernel sharpkernel = new Kernel(3, 3, difuminar);
         ConvolveOp sop = new ConvolveOp(sharpkernel, ConvolveOp.EDGE_NO_OP,null);
-        i = sop.filter(i, null);
+        I = sop.filter(i, null);
+        g.drawImage(I, 0, 0, null);
     }
     
-    public void Realce(BufferedImage i){
+    public void Realce(BufferedImage i,Graphics g){
         float[] resaltar ={
                     0.f, -1.f, 0.f,
                     -1.f, 5.0f, -1.f,
                     0.f, -1.f, 0.f};
         Kernel sharpkernel = new Kernel(3, 3, resaltar);
         ConvolveOp sop = new ConvolveOp(sharpkernel, ConvolveOp.EDGE_NO_OP,null);
-        i = sop.filter(i, null);
-        
+        I = sop.filter(i, null);
+        g.drawImage(I, 0, 0, null);
     }
 }

@@ -1,11 +1,16 @@
+
+import java.awt.image.BufferedImage;
+
 public class MainJFrame extends javax.swing.JFrame {
 
     public MainJFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
         panelImagen1.paintComponent(panelImagen1.getGraphics());
         buttonGroup1.add(jRadioButton1);
         buttonGroup1.add(jRadioButton2);
         buttonGroup1.add(jRadioButton3);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -20,15 +25,17 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
-        panelImagen1 = new PanelImagen();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        panelImagen1 = new PanelImagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jRadioButton1.setSelected(true);
         jRadioButton1.setText("Imagen 1");
+        jRadioButton1.setVerifyInputWhenFocusTarget(false);
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -36,8 +43,18 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         jRadioButton2.setText("Imagen 2");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jRadioButton3.setText("Imagen 3");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,6 +90,11 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         jCheckBox2.setText("Realzar");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -95,7 +117,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(42, 42, 42))
         );
 
-        panelImagen1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel1.setText("Samuel del Pino Rodriguez Grimón");
+
+        jLabel2.setText("Aitor García Hernandez");
+
+        panelImagen1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout panelImagen1Layout = new javax.swing.GroupLayout(panelImagen1);
         panelImagen1.setLayout(panelImagen1Layout);
@@ -105,12 +131,8 @@ public class MainJFrame extends javax.swing.JFrame {
         );
         panelImagen1Layout.setVerticalGroup(
             panelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGap(0, 443, Short.MAX_VALUE)
         );
-
-        jLabel1.setText("Samuel del Pino Rodriguez Grimón");
-
-        jLabel2.setText("Aitor García Hernandez");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,7 +168,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(21, 21, 21)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelImagen1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -155,12 +177,57 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
+        if(jCheckBox1.isSelected()){
+            panelImagen1.suavizar(panelImagen1.getI(), panelImagen1.getGraphics());
+            if(jCheckBox2.isSelected()){
+                panelImagen1.Realce(panelImagen1.getI(), panelImagen1.getGraphics());
+            }
+            
+        } else{
+            if(jCheckBox2.isSelected()){
+                panelImagen1.paintComponent(panelImagen1.getGraphics());
+                panelImagen1.Realce(panelImagen1.getI(), panelImagen1.getGraphics());
+            }else{
+                panelImagen1.paintComponent(panelImagen1.getGraphics());
+            }
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+        repaint();
+        panelImagen1.setRuta(".\\src\\Imagenes\\diu4-1.jpg");
+        panelImagen1.paintComponent(panelImagen1.getGraphics());
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        repaint();
+        panelImagen1.setRuta(".\\src\\Imagenes\\diu4-2.jpg");
+        panelImagen1.paintComponent(panelImagen1.getGraphics());
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        repaint();
+        panelImagen1.setRuta(".\\src\\Imagenes\\diu4-3.jpg");
+        panelImagen1.paintComponent(panelImagen1.getGraphics());
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        if(jCheckBox2.isSelected()){
+            panelImagen1.Realce(panelImagen1.getI(), panelImagen1.getGraphics());
+            if(jCheckBox1.isSelected()){
+                panelImagen1.suavizar(panelImagen1.getI(), panelImagen1.getGraphics());
+            }
+            
+        } else{
+            if(jCheckBox1.isSelected()){
+                panelImagen1.paintComponent(panelImagen1.getGraphics());
+                panelImagen1.suavizar(panelImagen1.getI(), panelImagen1.getGraphics());
+            }else{
+                panelImagen1.paintComponent(panelImagen1.getGraphics());
+            }
+        }
+        
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     /**
      * @param args the command line arguments
