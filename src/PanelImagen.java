@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 
 public class PanelImagen extends JPanel{
 
-    private String ruta = ".\\src\\Imagenes\\diu4-1.jpg";
-    private BufferedImage I;
-
+    private String ruta =  ".\\src\\Imagenes\\diu4-1.jpg";
+    private BufferedImage I = null;
+    
     public BufferedImage getI() {
         return I;
     }
@@ -23,7 +23,6 @@ public class PanelImagen extends JPanel{
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-         I=null;
         try{
             I=ImageIO.read(new File(ruta));
         }catch(IOException e){
