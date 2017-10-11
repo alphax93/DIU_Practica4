@@ -31,6 +31,7 @@ public class MainJFrame extends javax.swing.JFrame {
         panelImagen1 = new PanelImagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
